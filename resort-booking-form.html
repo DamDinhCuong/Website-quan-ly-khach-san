@@ -1,0 +1,146 @@
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Resort booking form</title>
+		<link rel="stylesheet" href="./StyleBooking.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<form class="form-group" action="RegistServlet" method="post">
+				<div id="form">
+					<h1 class="text-white text-center">Booking Now</h1>
+					<div id="first-group">
+						<div id="content">
+							<i class="fa fa-user" aria-hidden="true"></i> <input type="text" id="input-group"
+								name="tenKhachHang" placeholder="Full name" />
+						</div>
+
+
+
+						<div id="content">
+							<i class="fa fa-birthday-cake" aria-hidden="true"></i> <input type="date" id="input-group"
+								name="ngaySinh" placeholder="Birthday" />
+						</div>
+
+
+
+						<div id="content">
+							<i class="fa fa-phone" aria-hidden="true"></i> <input type="text" id="input-group"
+								name="soDienThoai" placeholder="Phone" />
+						</div>
+
+
+						<div id="content">
+							<i class="fa fa-address-card" aria-hidden="true"></i> <select id="input-group"
+								name="quocTich" style="background-color: black">
+								<option value="">Ntionality</option>
+								<option value="Vietnamese">Vietnamese</option>
+								<option value="English">English</option>
+								<option value="Lao">Lao</option>
+								<option value="American">American</option>
+							</select>
+						</div>
+						<div id="content">
+							<i class="fa fa-calendar" aria-hidden="true"></i> <input type="datetime-local"
+								id="input-group" name="ngayDat" placeholder="Departure Date" />
+						</div>
+
+					</div>
+
+					<div id="second-group">
+
+						<div id="content">
+							<i class="fa fa-address-card-o" aria-hidden="true"></i> <input type="text" id="input-group"
+								name="soCMTKhachHang" placeholder="Control number" />
+						</div>
+
+						<div id="content">
+							<i class="fa fa-transgender" aria-hidden="true"></i> <input type="radio" id="genderM"
+								name="gioiTinh" value="true" /> <label for="genderM" style="color: white">Male</label>
+							<input type="radio" id="genderF" name="gioiTinh" value="false" /> <label for="genderF"
+								style="color: white">Female</label>
+						</div>
+
+						<div id="content">
+							<i class="fa fa-envelope" aria-hidden="true"></i> <input type="text" id="input-group"
+								name="email" placeholder="Email" />
+						</div>
+
+						<div id="content">
+							<i class="fa fa-users" aria-hidden="true"></i>
+							<select id="input-group" onchange="selecboxChanged(this)" style="background-color: black">
+								<option value=""> -- Room Type -- </option>
+								<option value="1">Single room</option>
+								<option value="2"> Double room </option>
+								<option value="3"> Suite </option>
+								<option value="4"> Smoking room </option>
+								<option value="5"> Non-smoking room </option>
+							</select>
+						</div>
+						<div id="content">
+							<i class="fa fa-calendar" aria-hidden="true"></i> <input type="date" id="input-group"
+								name="ngayHetHan" placeholder="Arrival Date" />
+						</div>
+						<div id="content">
+							<b class="title-price">Giá:</b>
+							<b id="show-price">Bạn chưa chọn phòng</b>
+								
+						</div>
+					</div>
+					<div class="row-btn">
+						<button type="submit" value="Submit" id="submit-btn" onclick="return validate()">Book Now</button>
+						<a href="index.html">Quay về</a>
+					</div>
+						
+				</div>
+
+
+			</form>
+		</div>
+		<!-- <script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+		crossorigin="anonymous"></script> -->
+
+		<script language="javascript">
+			// Hàm xử lý khi thẻ select thay đổi giá trị được chọn
+			// obj là tham số truyền vào và cũng chính là thẻ select
+			function selecboxChanged(obj) {
+				var message = document.getElementById('show-price');
+				var value = obj.value;
+				if (value == '') {
+					message.innerHTML = "Bạn chưa chọn phòng";
+				}
+				else if (value == '1') {
+					message.innerHTML = "1tr5";
+				}
+				else if (value === '2') {
+					message.innerHTML = "2tr5";
+				}
+				else if (value === '3') {
+					message.innerHTML = "3tr5";
+				}
+				else if (value === '4') {
+					message.innerHTML = "4tr";
+				}
+				else if (value === '5') {
+					message.innerHTML = "4tr";
+				}
+			}
+
+		</script>
+	</body>
+
+
+	</html>
